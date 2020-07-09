@@ -2,21 +2,43 @@ package com.stock.gestionstock.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "ligneVente")
 public class LigneVente implements Serializable {
-	
+
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long idLigneVente;
 
-	public Long getId() {
-		return id;
+	@ManyToOne
+	@JoinColumn(name = "idArticle")
+	private Article article;
+	
+	@ManyToOne
+	@JoinColumn(name = "vente")
+	private Vente vente;
+
+	public Long getIdLigneVente() {
+		return idLigneVente;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdLigneVente(Long id) {
+		this.idLigneVente = id;
 	}
+
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
+	}
+
 }

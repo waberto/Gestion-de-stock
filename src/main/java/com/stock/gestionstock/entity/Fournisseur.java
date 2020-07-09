@@ -1,10 +1,12 @@
 package com.stock.gestionstock.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,9 @@ public class Fournisseur implements Serializable {
 	private String adresse;
 	private String photo;
 	private String mail;
+	
+	@OneToMany(mappedBy = "fournisseur")
+	private List<CommandeFournisseur> commandeFournisseur;
 
 	public Fournisseur() {
 		super();
@@ -71,5 +76,13 @@ public class Fournisseur implements Serializable {
 
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+
+	public List<CommandeFournisseur> getCommandeFournisseur() {
+		return commandeFournisseur;
+	}
+
+	public void setCommandeFournisseur(List<CommandeFournisseur> commandeFournisseur) {
+		this.commandeFournisseur = commandeFournisseur;
 	}
 }

@@ -22,10 +22,10 @@ public class Client implements Serializable {
 	private String adresse;
 	private String photo;
 	private String mail;
-	
+
 	@OneToMany(mappedBy = "client")
 	private List<CommandeClient> commandeClients;
-	
+
 	public Client() {
 		super();
 	}
@@ -80,6 +80,14 @@ public class Client implements Serializable {
 
 	public void setIdClient(Long idClient) {
 		this.idClient = idClient;
+	}
+
+	public List<CommandeClient> getCommandeClients() {
+		return commandeClients;
+	}
+
+	public void setCommandeClients(List<CommandeClient> commandeClients) {
+		this.commandeClients = commandeClients;
 	}
 
 }

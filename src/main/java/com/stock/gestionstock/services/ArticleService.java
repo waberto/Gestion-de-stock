@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.stock.gestionstock.entity.Article;
 import com.stock.gestionstock.repository.IArticleRepository;
+import com.stock.gestionstock.services.dto.ArticleDTO;
 
 @Service
 public class ArticleService {
@@ -18,17 +19,21 @@ public class ArticleService {
 		return repository.save(article);
 	}
 	
-	public Article updateArticle(Article article) {
+	public Article updateArticle(ArticleDTO articleDTO) {
 		
-		Article existingArticle = repository.findById(article.getIdArticle()).orElse(null);
+		//Article existingArticle = repository.findById(article.getIdArticle()).orElse(null);
 		
-		existingArticle.setCodeArticle(article.getCodeArticle());
-		existingArticle.setDesignation(article.getDesignation());
-		existingArticle.setPrixUnitaireHT(article.getPrixUnitaireHT());
-		existingArticle.setTauxTva(article.getTauxTva());
-		existingArticle.setPrixUnitaireTTC(article.getPrixUnitaireTTC());
-		existingArticle.setPhoto(article.getPhoto());
-		existingArticle.setCategory(article.getCategory());
+		Article existingArticle = new Article();
+		
+		existingArticle = repository.findById(articleDTO.getIdArticle()).orElse(null);
+		
+		existingArticle.setCodeArticle(articleDTO.getCodeArticle());
+		existingArticle.setDesignation(articleDTO.getDesignation());
+		existingArticle.setPrixUnitaireHT(articleDTO.getPrixUnitaireHT());
+		existingArticle.setTauxTva(articleDTO.getTauxTva());
+		existingArticle.setPrixUnitaireTTC(articleDTO.getPrixUnitaireTTC());
+		existingArticle.setPhoto(articleDTO.getPhoto());
+		existingArticle.setCategory(articleDTO.getCategory());
 		
 		return repository.save(existingArticle);
 	}

@@ -10,15 +10,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
+
 @Entity
 @Table(name = "article")
 public class Article implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private Long idArticle;
+	private int id;
 
-	private String codeArticle;
+	private String name;
 	private String designation;
 	private BigDecimal prixUnitaireHT;
 	private BigDecimal tauxTva;
@@ -31,21 +33,36 @@ public class Article implements Serializable {
 	
 	public Article() {
 	}
+		
 
-	public Long getIdArticle() {
-		return idArticle;
+	public Article(int id, String name, String designation, BigDecimal prixUnitaireHT,
+			BigDecimal tauxTva, BigDecimal prixUnitaireTTC, String photo, Category category) {
+		this.id = id;
+		this.name = name;
+		this.designation = designation;
+		this.prixUnitaireHT = prixUnitaireHT;
+		this.tauxTva = tauxTva;
+		this.prixUnitaireTTC = prixUnitaireTTC;
+		this.photo = photo;
+		this.category = category;
 	}
 
-	public void setIdArticle(Long idArticle) {
-		this.idArticle = idArticle;
+
+
+	public int getId() {
+		return id;
 	}
 
-	public String getCodeArticle() {
-		return codeArticle;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public void setCodeArticle(String codeArticle) {
-		this.codeArticle = codeArticle;
+	public String getNameArticle() {
+		return name;
+	}
+
+	public void setNameArticle(String name) {
+		this.name = name;
 	}
 
 	public String getDesignation() {

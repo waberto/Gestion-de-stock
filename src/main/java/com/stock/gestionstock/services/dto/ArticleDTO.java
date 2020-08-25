@@ -8,7 +8,7 @@ public class ArticleDTO {
 
 	private Long idArticle;
 	
-	private String codeArticle;
+	private String name;
 	private String designation;
 	private BigDecimal prixUnitaireHT;
 	private BigDecimal tauxTva;
@@ -28,12 +28,12 @@ public class ArticleDTO {
 		this.idArticle = idArticle;
 	}
 
-	public String getCodeArticle() {
-		return codeArticle;
+	public String getNameArticle() {
+		return name;
 	}
 
-	public void setCodeArticle(String codeArticle) {
-		this.codeArticle = codeArticle;
+	public void setNameArticle(String name) {
+		this.name = name;
 	}
 
 	public String getDesignation() {
